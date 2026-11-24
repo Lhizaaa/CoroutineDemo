@@ -40,9 +40,9 @@ ke dispatcher yang tepat (main-safe).
 
 ## 5. Pertanyaan konsep
 **(a) Beda `launch` dan `async`**
-`launch` menghasilkan `Job` dan tidak mengembalikan nilai; cocok untuk pekerjaan "jalankan saja"
+`launch` menghasilkan `Job` dan tidak mengembalikan nilai, cocok untuk pekerjaan "jalankan saja"
 (menyimpan data, memperbarui state). `async` menghasilkan `Deferred<T>`, yaitu janji nilai yang
-diambil dengan `await()`; cocok untuk beberapa pekerjaan paralel yang hasilnya dibutuhkan.
+diambil dengan `await()`, cocok untuk beberapa pekerjaan paralel yang hasilnya dibutuhkan.
 
 **(b) Kenapa `GlobalScope` dihindari**
 `GlobalScope` tidak terikat lifecycle apa pun dan hidup selama aplikasi berjalan. Coroutine di dalamnya
@@ -62,7 +62,3 @@ Tombol **Sort** memanggil `TasksViewModel.sortTasks()`, yang memanggil
 `TaskRepository.sortTasksByTitle()`. Pengurutan dijalankan dengan
 `withContext(Dispatchers.Default)` (komputasi CPU), lalu hasilnya dipakai memperbarui state di Main.
 Tombol hanya aktif saat tidak loading dan daftar berisi lebih dari satu tugas.
-
-## Pengembangan bebas
-Menampilkan **"Last load time"** (diukur dengan `measureTimeMillis`) agar terbukti pemuatan paralel
-±2 detik, bukan jumlah semua delay.

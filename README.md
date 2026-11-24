@@ -24,7 +24,7 @@ pesan error, padahal pembatalan bukan kegagalan. Dengan `IOException`, pembatala
 dan diteruskan dengan benar. Jika terpaksa menangkap `Exception`, lempar ulang
 `CancellationException` terlebih dahulu (`catch (e: CancellationException) { throw e }`).
 
-> Kode final tetap memakai `catch (e: IOException)` karena itu cara yang benar.
+(Kode final tetap memakai `catch (e: IOException)` karena itu cara yang benar)
 
 ## 4. Di mana macetnya?
 - **`Thread.sleep(2000L)` di dalam `withContext(Dispatchers.IO)`:** layar **tidak macet**. `Thread.sleep`
